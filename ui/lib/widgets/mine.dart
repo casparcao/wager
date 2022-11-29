@@ -19,7 +19,7 @@ class MineState extends State<MineScreen> {
   @override
   void initState() {
     super.initState();
-    load("wager/mine", {}, (List<dynamic> list) {
+    load("api/wager/mine", {}, (List<dynamic> list) {
       setState(() {
         wagers = list.map((item) => MineWager.from(item)).toList();
       });

@@ -20,7 +20,7 @@ class RecordState extends State<RecordScreen> {
   @override
   void initState() {
     super.initState();
-    load("wager/game", {"game": widget.game.id}, (List<dynamic> list) {
+    load("api/wager/game", {"game": widget.game.id}, (List<dynamic> list) {
       setState(() {
         wagers = list.map((item) => GameWager.from(item)).toList();
       });

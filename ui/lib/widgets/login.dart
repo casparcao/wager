@@ -136,7 +136,7 @@ class LoginPageState extends State<LoginPage> {
                 "username": username,
                 "password": password
               };
-              var uri = Uri.http(Constant.baseurl, "token");
+              var uri = Uri.http(Constant.baseurl, "api/token");
               var future =
                   http.post(uri, headers: headers, body: json.encode(body));
               future.then((response) {

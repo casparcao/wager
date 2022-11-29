@@ -128,7 +128,7 @@ class WagerPageState extends State<WagerPage> {
                     "Content-Type": "application/json",
                     "Authorization": token
                   };
-                  var uri = Uri.http(Constant.baseurl, "wager");
+                  var uri = Uri.http(Constant.baseurl, "api/wager");
                   Map<String, dynamic> body = wager.to();
                   var future =
                       http.post(uri, headers: headers, body: json.encode(body));

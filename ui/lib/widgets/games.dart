@@ -20,7 +20,7 @@ class GamesState extends State<GamesScreen> {
   @override
   void initState() {
     super.initState();
-    load("games", {}, (List<dynamic> list) {
+    load("api/games", {}, (List<dynamic> list) {
       setState(() {
         games = list.map((item) => Game.from(item)).toList();
       });
