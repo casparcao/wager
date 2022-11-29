@@ -39,12 +39,12 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/public/**", "/token", "/error", "/sign/up")
+                .antMatchers("/public/**", "/api/token", "/error", "/api/sign/up")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
 
-        http.addFilterBefore(new CustomJwtAuthenticationFilter("/token",
+        http.addFilterBefore(new CustomJwtAuthenticationFilter("/api/token",
                 authenticationManager(), objectMapper), UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(new JwtTokenVerifier(), UsernamePasswordAuthenticationFilter.class);
 

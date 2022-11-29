@@ -27,7 +27,7 @@ public class JwtTokenVerifier extends GenericFilterBean {
                          FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         String path = req.getServletPath();
-        if(path.equals("/token") || path.equals("/error") || path.equals("/sign/up")){
+        if(path.equals("/api/token") || path.equals("/error") || path.equals("/api/sign/up")){
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }

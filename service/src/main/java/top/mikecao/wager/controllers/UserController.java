@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private RegisterService registerService;
 
-    @PostMapping("/sign/up")
+    @PostMapping("/api/sign/up")
     public Result<Void> register(@RequestBody @Validated SignUpRequest request){
         return registerService.action(request);
     }

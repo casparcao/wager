@@ -19,7 +19,7 @@ public class WagerController {
     @Autowired
     private WagerService wagerService;
 
-    @PostMapping("/wager")
+    @PostMapping("/api/wager")
     public Result<Void> wager(@RequestBody @Validated WagerRequest request){
         Who who = Sessions.current();
         return wagerService.bet(who, request);
@@ -28,7 +28,7 @@ public class WagerController {
     /**
      * 我的竞猜
      */
-    @GetMapping("/wager/mine")
+    @GetMapping("/api/wager/mine")
     public Result<List<MineWagerResponse>> mine(@RequestParam(value = "game", required = false, defaultValue = "0") long game){
         Who who = Sessions.current();
         return wagerService.mine(who.getId(), game);
@@ -37,7 +37,7 @@ public class WagerController {
     /**
      * 某场游戏的所有竞猜记录
      */
-    @GetMapping("/wager/game")
+    @GetMapping("/api/wager/game")
     public Result<List<GameWagerResponse>> game(@RequestParam(value = "game") long game){
         return wagerService.game(game);
     }
