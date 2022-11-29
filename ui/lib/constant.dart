@@ -1,3 +1,8 @@
+import 'dart:io';
+
 class Constant {
-  static const String baseurl = "localhost:8080";
+  Map<String, String> envs = Platform.environment;
+  String baseurl() {
+    return envs["BASE_URL"] ?? "localhost:8080";
+  }
 }

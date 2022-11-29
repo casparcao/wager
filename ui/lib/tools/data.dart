@@ -24,7 +24,7 @@ void load(String path, Map<String, dynamic> params, Function callback,
       "Authorization": "Bearer $token",
       "Content-Type": "application/json;charset=utf-8"
     };
-    Uri uri = Uri.http(Constant.baseurl, path, params);
+    Uri uri = Uri.http(Constant().baseurl(), path, params);
     http.get(uri, headers: headers).then((response) {
       if (response.statusCode >= 300 || response.statusCode < 200) {
         ScaffoldMessenger.of(context)

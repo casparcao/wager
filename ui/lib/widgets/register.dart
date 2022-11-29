@@ -171,7 +171,7 @@ class RegisterPageState extends State<RegisterPage> {
                 "username": username,
                 "password": password
               };
-              var uri = Uri.http(Constant.baseurl, "api/sign/up");
+              var uri = Uri.http(Constant().baseurl(), "api/sign/up");
               var future =
                   http.post(uri, headers: headers, body: json.encode(body));
               future.then((response) {
