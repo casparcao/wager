@@ -180,7 +180,8 @@ class RegisterPageState extends State<RegisterPage> {
                       .showSnackBar(const SnackBar(content: Text("服务器异常")));
                   return;
                 }
-                Map<String, dynamic> result = json.decode(response.body);
+                String utf8body = utf8.decode(latin1.encode(response.body));
+                Map<String, dynamic> result = json.decode(utf8body);
                 if (result["code"] != 0) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(result["msg"])));

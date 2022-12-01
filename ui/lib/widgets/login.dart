@@ -151,7 +151,8 @@ class LoginPageState extends State<LoginPage> {
                       fontSize: 16);
                   return;
                 }
-                Map<String, dynamic> result = json.decode(response.body);
+                String utf8body = utf8.decode(latin1.encode(response.body));
+                Map<String, dynamic> result = json.decode(utf8body);
                 if (result["code"] != 0) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(result["msg"])));
